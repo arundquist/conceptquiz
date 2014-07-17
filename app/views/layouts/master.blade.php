@@ -10,6 +10,9 @@
 			body { padding-top: 20px; }
 			@yield('css')
 		</style>
+		<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 		
 		<title>Concept Quiz</title>
 	</head>
