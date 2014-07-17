@@ -1,0 +1,12 @@
+{{Form::open(['route'=>'cqs.store'])}}
+{{Form::label('question', 'Question')}}
+{{Form::textarea('question','')}}
+{{Form::label('a1', 'correct answer')}}
+{{Form::text('a1','')}}
+{{Form::label('a2', 'correct answer')}}
+{{Form::text('a2','')}}
+{{Form::label('a3', 'correct answer')}}
+{{Form::text('a3','')}}
+{{Form::label('a4', 'correct answer')}}
+{{Form::text('a4','')}}
+{{Form::submit('creat cq')}}

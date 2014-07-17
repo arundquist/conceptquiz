@@ -1,0 +1,7 @@
+{{Form::model($cq, ['action'=>['CqsController@update',$cq->id]])}}
+{{Form::textarea('question')}}<br/>
+{{Form::text('a1')}}<br/>
+{{Form::text('a2')}}<br/>
+{{Form::text('a3')}}<br/>
+{{Form::text('a4')}}<br/>
+{{Form::close()}}

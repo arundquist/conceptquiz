@@ -1,0 +1,107 @@
+<?php
+
+class CqsController extends \BaseController {
+
+	/**
+	 * Display a listing of cqs
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		$cqs = Cq::all();
+
+		return View::make('cqs.index', compact('cqs'));
+	}
+
+	/**
+	 * Show the form for creating a new cq
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		return View::make('cqs.create');
+	}
+
+	/**
+	 * Store a newly created cq in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		$validator = Validator::make($data = Input::all(), Cq::$rules);
+
+		if ($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+
+		Cq::create($data);
+
+		return Redirect::route('cqs.index');
+	}
+
+	/**
+	 * Display the specified cq.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$cq = Cq::findOrFail($id);
+
+		return View::make('cqs.show', compact('cq'));
+	}
+
+	/**
+	 * Show the form for editing the specified cq.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		$cq = Cq::find($id);
+
+		return View::make('cqs.edit', compact('cq'));
+	}
+
+	/**
+	 * Update the specified cq in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		$cq = Cq::findOrFail($id);
+
+		$validator = Validator::make($data = Input::all(), Cq::$rules);
+
+		if ($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+
+		$cq->update($data);
+
+		return Redirect::route('cqs.index');
+	}
+
+	/**
+	 * Remove the specified cq from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		Cq::destroy($id);
+
+		return Redirect::route('cqs.index');
+	}
+
+}

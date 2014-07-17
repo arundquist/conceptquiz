@@ -1,0 +1,21 @@
+{{$cq->id}}: {{$cq->question}}
+<?php
+$answers=[$cq->a1, $cq->a2, $cq->a3, $cq->a4];
+shuffle($answers);
+?>
+<ol>
+@foreach ($answers as $answer)
+<li>{{$answer}}</li>
+@endforeach
+</ol>
+
+@if ($cq->graphic_id!=0)
+<img src="data:image/jpeg;base64,<?= base64_encode($cq->graphic->filedata) ?>">
+@endif
+{{$cq->a1}}
+
+<br/>
+<h1>tags</h1>
+@foreach ($cq->tags as $tag)
+{{link_to_action('TagsController@show', "{$tag->tag}", [$tag->id])}}<br/>
+@endforeach

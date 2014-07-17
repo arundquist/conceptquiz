@@ -1,0 +1,6 @@
+<h1>{{$tag->tag}}</h1>
+@foreach($tag->cqs as $cq)
+{{$cq->question}}
+<hr/>
+@endforeach
+
