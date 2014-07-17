@@ -9,7 +9,7 @@ class TagsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$tags = Tag::orderBy('tag', 'ASC')->get();
+		$tags = Tag::all();
 
 		return View::make('tags.index', compact('tags'));
 	}
