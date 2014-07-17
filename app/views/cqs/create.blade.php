@@ -67,7 +67,7 @@
 {{Form::label('image', 'Image')}}
 {{Form::file('image')}}<br/>
 {{Form::label('imagedesc', 'Image description')}}
-{{Form::textarea('imagedesc', '')}}<br/>sdfd
+{{Form::textarea('imagedesc', '')}}<br/>
 {{Form::label('tags', 'Tags')}}
 {{Form::text('tags','',['size'=>'40'])}}
 {{Form::submit('create cq')}}
