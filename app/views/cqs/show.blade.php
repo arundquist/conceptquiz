@@ -30,7 +30,12 @@ style="background-color: {{$colors[$key]}}; color: {{$textcolors[$key]}};font-we
 </ol>
 <div>
 @if ($cq->graphic_id!=0)
-{{$cq->graphic->img_link}}
+{{$cq->graphic->img_link}}<br/>
+@foreach ($cq->graphic->cqs AS $othercq)
+	@if($othercq->id != $cq->id)
+		{{link_to_route('cqs.show', $othercq->id,[$othercq->id])}}
+	@endif
+@endforeach
 @endif
 </div>
 
@@ -39,6 +44,7 @@ tags:
 @foreach ($cq->tags as $tag)
 {{link_to_action('TagsController@show', "{$tag->tag}", [$tag->id])}}, 
 @endforeach
+
 </div>
 {{link_to_route('cqs.edit', "edit", [$cq->id])}}
 @stop

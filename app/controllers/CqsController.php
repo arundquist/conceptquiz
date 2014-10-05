@@ -16,7 +16,7 @@ class CqsController extends \BaseController {
 	 
 	public function index()
 	{
-		$cqs = Cq::all();
+		$cqs = Cq::orderBy('id','DESC')->get();
 
 		return View::make('cqs.index', compact('cqs'));
 	}
